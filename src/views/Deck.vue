@@ -13,6 +13,16 @@
           </div>
         </div>
       </slot>
+      <slot slot="footer" v-if="getRotationCardImage">
+        <div class="rotate-card">
+          <h3 class="pageTitle">Rotation Card</h3>
+          <div v-if="selectedDeck" class="card">
+            <div class="card-img-container">
+              <img :src="getRotationCardImage" alt="" />
+            </div>
+          </div>
+        </div>
+      </slot>
     </CardsContainer>
     <SortCardsButtons
       @sortByInput="sortByInput"
@@ -58,7 +68,14 @@ export default {
     },
   },
   computed: {
-    ...mapGetters(["selectedDeck"]),
+    ...mapGetters(["all52Cards", "selectedDeck", "rotateCard"]),
+    getRotationCardImage() {
+      const rotationCardImage = this.all52Cards[this.rotateCard] || {
+        image: "",
+      };
+
+      return rotationCardImage.image;
+    },
   },
   mounted() {
     this.deck_id = this.$route.params.id;
@@ -70,7 +87,12 @@ export default {
 <style>
 /* duplicated, no time left */
 .card-img-container img {
-  height: 200px;
+  height: 150px;
   padding: 5px;
+}
+
+.rotate-card {
+  display: flex;
+  flex-direction: column;
 }
 </style>
