@@ -29,7 +29,6 @@ export default new Vuex.Store({
   actions: {
     [ADD_CREATED_DECK_TO_STORE]({ commit }, deck) {
       commit(ADD_TO_ALL_DECKS, deck);
-      commit(SET_SELECTED_DECK, deck);
     },
   },
   modules: {},
