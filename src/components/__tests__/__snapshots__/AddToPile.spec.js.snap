@@ -1,0 +1,24 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AddToPile.js Should create a snapshot of the AddToPile 1`] = `
+<div
+  class="add-to-pile"
+>
+  <div>
+    Add cards to the pile
+  </div>
+   
+  <div>
+    <input
+      maxlength="2"
+      type="text"
+    />
+     
+    <button
+      class="primary-color"
+    >
+      Add
+    </button>
+  </div>
+</div>
+`;

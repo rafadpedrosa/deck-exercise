@@ -2,10 +2,19 @@
   <div class="sort-cards-buttons">
     <div class="title">Sort cards by</div>
     <div>
-      <button class="primary-color" @click="$emit('sortByInput')">
+      <button
+        data-test="sortByInput"
+        class="primary-color"
+        @click="$emit('sortByInput')"
+      >
         Input Order
       </button>
-      <button class="primary-color" @click="$emit('sortByRotation')">
+
+      <button
+        data-test="sortByRotation"
+        class="primary-color"
+        @click="$emit('sortByRotation')"
+      >
         Rotation order
       </button>
     </div>
@@ -24,6 +33,7 @@ export default {
 .title {
   padding: 5px;
 }
+
 .sort-cards-buttons {
   display: flex;
   flex-direction: column;

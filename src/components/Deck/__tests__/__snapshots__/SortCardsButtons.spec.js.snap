@@ -1,0 +1,33 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SortCardsButtons.js Should create a snapshot of the SortCardsButtons 1`] = `
+<div
+  class="sort-cards-buttons"
+>
+  <div
+    class="title"
+  >
+    Sort cards by
+  </div>
+   
+  <div>
+    <button
+      class="primary-color"
+      data-test="sortByInput"
+    >
+      
+      Input Order
+    
+    </button>
+     
+    <button
+      class="primary-color"
+      data-test="sortByRotation"
+    >
+      
+      Rotation order
+    
+    </button>
+  </div>
+</div>
+`;
