@@ -56,9 +56,11 @@ export default {
       this.$store.commit(SET_ALL_52_CARDS, allCards);
     },
     addToPile(card) {
+      // it's a problem if is the same? Not sure. It should be since we can have more than one deck in the api right?
+      const maxAllowedCards = 10;
       const cardToAddPile = { ...this.all52Cards[card.toUpperCase()] };
 
-      if (cardToAddPile) {
+      if (cardToAddPile && this.pile.length < maxAllowedCards) {
         this.pile.push(cardToAddPile);
       } else {
         console.warn("::: it did not exist");
@@ -66,6 +68,7 @@ export default {
     },
     // I'm not a card person which cars is the less value? 2C?
     async submitDeck(rotation = "2C") {
+      // TODO need to validate if the rotation exist
       const pileCardsCode = this.pile.map((card) => card.code);
       const createResponse = await axios.get(
         `https://deckofcardsapi.com/api/deck/new?cards=${pileCardsCode.join(
@@ -76,7 +79,7 @@ export default {
 
       await this.$store.dispatch(ADD_CREATED_DECK_TO_STORE, {
         ...deck,
-        rotation: rotation,
+        rotation: rotation.toUpperCase(),
       });
 
       this.$router.push({ path: `/deck/${deck.deck_id}` });
@@ -100,7 +103,7 @@ export default {
 }
 
 .card-img-container img {
-  height: 200px;
+  height: 150px;
   padding: 5px;
 }
 </style>
