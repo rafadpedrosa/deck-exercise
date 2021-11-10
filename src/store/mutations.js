@@ -1,2 +1,3 @@
 export const ADD_TO_ALL_DECKS = "ADD_TO_ALL_DECKS";
 export const SET_SELECTED_DECK = "SET_SELECTED_DECK";
+export const SET_ALL_52_CARDS = "SET_ALL_52_CARDS";
