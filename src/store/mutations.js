@@ -1,0 +1,2 @@
+export const ADD_TO_ALL_DECKS = "ADD_TO_ALL_DECKS";
+export const SET_SELECTED_DECK = "SET_SELECTED_DECK";
