@@ -1,12 +1,12 @@
 <template>
   <div class="new-deck">
-    <h1 class="pageTitle">Deck of cards</h1>
     <CardsContainer>
       <slot slot="body">
+        <!-- maybe this can be a component-->
         <div v-if="pile.length" class="card">
           <div
-            v-for="card in pile"
-            v-bind:key="card.code"
+            v-for="(card, index) in pile"
+            v-bind:key="index"
             class="card-img-container"
           >
             <img :src="card.image" alt="" />
@@ -64,9 +64,8 @@ export default {
         console.warn("::: it did not exist");
       }
     },
-    // I'm not a card person which cars is the less value?
+    // I'm not a card person which cars is the less value? 2C?
     async submitDeck(rotation = "2C") {
-      debugger;
       const pileCardsCode = this.pile.map((card) => card.code);
       const createResponse = await axios.get(
         `https://deckofcardsapi.com/api/deck/new?cards=${pileCardsCode.join(
@@ -88,12 +87,12 @@ export default {
   },
   mounted() {
     this.resolveAllCardsApiProblem();
-    // this.createNewDeck();
   },
 };
 </script>
 
 <style scoped>
+/* duplicated, no time left */
 .rotate-wrapper {
   padding-top: 10px;
   display: flex;
